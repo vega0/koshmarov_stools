@@ -59,6 +59,7 @@ end
 
 function TOOL:PostDrawOpaqueRenderables()
 	if (not IsValid(self.SelectedEntity)) or (not self.SelectedEntity:IsValid()) then return end
+	if not self.HitPos then return end
 	local ent = self.SelectedEntity
 	render.DrawWireframeBox( ent:GetPos(), ent:GetAngles(), ent:OBBMins(), ent:OBBMaxs(), Color(155,155,0), true)
 	render.DrawLine(ent:GetPos(), self.HitPos, LineColor)
